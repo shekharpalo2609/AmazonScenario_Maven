@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="selnium_package.AmazonScenario_Maven.TestCase04">
+      <class name="selnium_package.AmazonScenario_Maven.TestCase05">
         <methods>
-          <include name="addProductToCart"/>
+          <include name="selectAddress"/>
         </methods>
-      </class> <!-- selnium_package.AmazonScenario_Maven.TestCase04 -->
+      </class> <!-- selnium_package.AmazonScenario_Maven.TestCase05 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

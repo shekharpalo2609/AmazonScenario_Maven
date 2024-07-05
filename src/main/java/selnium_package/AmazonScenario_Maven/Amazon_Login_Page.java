@@ -10,7 +10,7 @@ public class Amazon_Login_Page {
 	WebDriver driver;
 	
 	@FindBy(name="email")
-	WebElement EmailID;
+	WebElement emailID;
 
 	@FindBy(id="continue")
 	WebElement continueButton;
@@ -22,7 +22,7 @@ public class Amazon_Login_Page {
 	WebElement signInButton;
 	
 	public void userName() {
-		EmailID.sendKeys("paloskr26@gmail.com");
+		emailID.sendKeys("paloskr26@gmail.com");
 	}
 	
 	public void continueClick() {
@@ -30,11 +30,12 @@ public class Amazon_Login_Page {
 	}
 	
 	public void password() {
-		password.sendKeys("*********");
+		password.sendKeys("*****************");
 	}
 	
 	public void signIn() {
 		signInButton.click();
+		
 	}
 	
 	public Amazon_Login_Page(WebDriver driver) {

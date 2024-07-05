@@ -6,16 +6,20 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class TestCase03 {
+import selenium_package.listener.ListenerClass;
+
+@Listeners(ListenerClass.class)
+public class TestCase03 extends ListenerClass {
 
 	@Test
 	public void addProductToWishList() {
 
-		WebDriver driver = new EdgeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(
@@ -43,6 +47,7 @@ public class TestCase03 {
 
 		Amazon_Product_Page productPage = new Amazon_Product_Page(driver);
 		productPage.addToWishlist();
-
+		
+		Assert.assertEquals(driver.getTitle(), "Buy Kraasa Sports Running,Walking & Gym Shoes with Eva Sole Extra Jump Casual Sneaker Shoes for Men's & Boy's | Lightweight White at Amazon.in", "Test case 03 failed!");
 	}
 }

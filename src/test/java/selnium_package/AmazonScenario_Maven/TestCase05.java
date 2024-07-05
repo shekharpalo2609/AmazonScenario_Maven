@@ -6,18 +6,22 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class TestCase05 {
+import selenium_package.listener.ListenerClass;
+
+@Listeners(ListenerClass.class)
+public class TestCase05 extends ListenerClass {
 
 	@Test
 	public void selectAddress() {
 
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(
@@ -59,5 +63,6 @@ public class TestCase05 {
 
 		address.useThisAddress();
 
+		Assert.assertEquals(driver.getTitle(), "Select a delivery address", "Test case 05 failed!");
 	}
 }

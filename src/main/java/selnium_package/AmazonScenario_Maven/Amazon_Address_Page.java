@@ -17,10 +17,10 @@ public class Amazon_Address_Page {
 	}
 	
 	@FindBy(xpath = "(//input[@type='submit'])[2]")
-	WebElement useThisAddressOption;
+	WebElement useThisAddressButton;
 	
 	public void useThisAddress() {
-		useThisAddressOption.click();
+		useThisAddressButton.click();
 	}
 	
 	public Amazon_Address_Page(WebDriver driver) {

@@ -6,17 +6,20 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-public class TestCase04 {
+import selenium_package.listener.ListenerClass;
+
+@Listeners(ListenerClass.class)
+public class TestCase04 extends ListenerClass{
 
 	@Test
 	public void addProductToCart() {
 
-		WebDriver driver = new EdgeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.get(
@@ -48,6 +51,8 @@ public class TestCase04 {
 		productPage.viewYourList();
 		
 		productPage.addToCart();
+		
+		Assert.assertEquals(driver.getTitle(), "Amazon.in", "Test case 04 failed!");
 
 	}
 }
